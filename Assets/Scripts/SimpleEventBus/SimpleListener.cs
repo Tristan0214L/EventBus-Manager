@@ -23,15 +23,12 @@ public class SimpleListener : MonoBehaviour, ISimpleListener
     {
         // we can call this from any class but I am doing it here
         //Invoke specific event
-        SimpleEventBus.Instance.PostNotification(SIMPLE_EVENT_TYPE.EVENT_ONE, this, "Hello World");
+        //SimpleEventBus.Instance.PostNotification(SIMPLE_EVENT_TYPE.EVENT_ONE, this, "Hello World");
     }
-
-
-
     //what to do when events are called
     public void OnEvent(SIMPLE_EVENT_TYPE eventType, Component sender, object param = null)
     {
-        if(eventType == SIMPLE_EVENT_TYPE.EVENT_ONE)
+        if (eventType == SIMPLE_EVENT_TYPE.EVENT_ONE)
         {
             Debug.Log($"Hey, event was triggered!! parameters are {param} from {sender.name}");
         }
