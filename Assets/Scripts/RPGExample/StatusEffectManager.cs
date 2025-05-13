@@ -6,6 +6,9 @@ public class StatusEffectManager : MonoBehaviour, IRPGListener
 {
     [SerializeField]
     Character character;
+
+    [SerializeField]
+    bool DOTHISNOW = false;
     //Status effects: 
     //ticking
     //what status effect
@@ -35,11 +38,17 @@ public class StatusEffectManager : MonoBehaviour, IRPGListener
     void Start()
     {
         AddStatusEffect(RPGStatusEffects.POISONED, 10.0f, 1.0f);
+        Debug.Log("StatusEffectManager");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (DOTHISNOW)
+        {
+            AddStatusEffect(RPGStatusEffects.POISONED, 10.0f, 1.0f);
+            DOTHISNOW = false;
+        }
         //go through each status effect
         //minus the duration
         //check the tick rate
@@ -109,6 +118,7 @@ public class StatusEffectManager : MonoBehaviour, IRPGListener
         newStatusEffect.tickRateRemaining = 0;
 
         activeStatusEffects.Add(newStatusEffect);
+        RPGEventManager.Instance.PostNotification(RPGEvents.STATUS_ADDED, this, newStatusEffect.type);
     }
     public void RemoveStatusEffect(RPGStatusEffects type)
     {
@@ -124,6 +134,7 @@ public class StatusEffectManager : MonoBehaviour, IRPGListener
         }
         if (toBeRemoved != null) {
             activeStatusEffects.Remove(toBeRemoved);
+            RPGEventManager.Instance.PostNotification(RPGEvents.STATUS_REMOVED, this, type);
         }
 
     }
