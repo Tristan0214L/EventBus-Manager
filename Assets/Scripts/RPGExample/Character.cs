@@ -42,6 +42,9 @@ public class Character : MonoBehaviour, IRPGListener
     {
         RPGEventManager.Instance.AddListener(RPGEvents.HEALTH_CHANGED, this);
         RPGEventManager.Instance.AddListener(RPGEvents.MANA_CHANGED, this);
+
+        Health = 100;
+        Mana = 100;
         
     }
     private void OnDestroy()

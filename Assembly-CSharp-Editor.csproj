@@ -1196,8 +1196,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Collections.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
@@ -1301,6 +1309,14 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{6E1692E0-6621-A2D3-EBE0-4AE4B97F95FC}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.Core.Samples.Editor.csproj">
+      <Project>{C6916675-0C7F-BA7F-107C-9B4C008CF56A}</Project>
+      <Name>Unity.RenderPipelines.Core.Samples.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.Core.Samples.Runtime.csproj">
+      <Project>{BB93838D-36BE-2211-7271-3EDFA5FA0764}</Project>
+      <Name>Unity.RenderPipelines.Core.Samples.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
